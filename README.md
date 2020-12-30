@@ -1,4 +1,4 @@
-	# thanks DB設計
+# thanks DB設計
 
 ## usersテーブル
 |Column|Type|Options|
