@@ -2,13 +2,15 @@
   .SideBar__upper
     .SideBar__upper__header
       .SideBar__upper__header__list
-        .SideBar__upper__header__list__userName
-          Username
-        .SideBar__upper__header__list__icons
-          .SideBar__upper__header__list__icons-edit
+        %h3.SideBar__upper__header__list__userName
+          Username:
+          = current_user.username
+        %ul.SideBar__upper__header__list__icons
+          %li.SideBar__upper__header__list__icons-edit
           = icon('far', 'edit', class: "btn--edit")
-          .SideBar__upper__header__list__icons-cog
-          = icon('fas', 'cog', class: "btn--cog")
+          %li.SideBar__upper__header__list__icons-cog
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: "btn--cog")
 
   .SideBar__middle
     .SideBar__middle__container
