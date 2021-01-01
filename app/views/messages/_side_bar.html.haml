@@ -1,1 +1,20 @@
-＜サイドバー＞
+.SideBar
+  .SideBar__upper
+    .SideBar__upper__header
+      .SideBar__upper__header__list
+        .SideBar__upper__header__list__userName
+          Username
+        .SideBar__upper__header__list__icons
+          .SideBar__upper__header__list__icons-edit
+          = icon('far', 'edit', class: "btn--edit")
+          .SideBar__upper__header__list__icons-cog
+          = icon('fas', 'cog', class: "btn--cog")
+
+  .SideBar__middle
+    .SideBar__middle__container
+      .SideBar__middle__container__groupName
+        Groupname
+      .SideBar__middle__container__messageList
+        Messagelist
+
+  .SideBar__under
