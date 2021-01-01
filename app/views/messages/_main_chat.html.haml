@@ -1,0 +1,25 @@
+.ChatMain
+  .ChatMain__groupBar
+    .ChatMain__groupBar__name
+      Groupname
+      .ChatMain__groupBar__member
+        member
+    .ChatMain__groupBar__edit
+    = link_to "#", class: "editBtn" do
+      edit
+  .ChatMain__messageList
+    .ChatMain__messageList__postInfo
+      .ChatMain__messageList__postInfo__userName
+        Name
+      .ChatMain__messageList__postInfo__date
+        Date
+    .ChatMain__messageList__message
+      message
+
+  .ChatMain__messageForm
+    = form_with url: "#", method: :post, local: true do |f|
+      = f.text_field :content, class: 'inputForm', placeholder: 'type a message'
+      = f.label :image, class: 'inputImage' do
+        = icon('far', 'image', class: 'inputBtn')
+        = f.file_field :image, class: 'fileBtn'
+      = f.submit 'Send', class: 'submitBtn'
