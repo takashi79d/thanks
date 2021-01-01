@@ -14,10 +14,12 @@
             = icon('fas', 'cog', class: "btn--cog")
 
   .SideBar__middle
-    .SideBar__middle__container
-      .SideBar__middle__container__groupName
-        Groupname
-      .SideBar__middle__container__messageList
-        Messagelist
+    - current_user.groups.each do |group|
+      .SideBar__middle__container
+        = link_to '#' do
+          .SideBar__middle__container__groupName
+            = group.name
+          .SideBar__middle__container__messageList
+            メッセージはまだありません
 
   .SideBar__under
