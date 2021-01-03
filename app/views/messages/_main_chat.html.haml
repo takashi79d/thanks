@@ -1,25 +1,31 @@
-.ChatMain
-  .ChatMain__groupBar
-    .ChatMain__groupBar__name
-      Groupname
-      .ChatMain__groupBar__member
-        member
-    .ChatMain__groupBar__edit
-    = link_to "#", class: "editBtn" do
-      edit
-  .ChatMain__messageList
-    .ChatMain__messageList__postInfo
-      .ChatMain__messageList__postInfo__userName
-        Name
-      .ChatMain__messageList__postInfo__date
-        Date
-    .ChatMain__messageList__message
-      message
+.Chat
+  .RightHeader
+    .RightHeader__group
+      .RightHeader__groupName
+        = @group.name
+      %ul.RightHeader__memberList
+        Member : 
+        - @group.users.each do |user|
+          = user.username
+    .RightHeader__editBtn
+      = link_to edit_group_path(@group), class: "editBtn" do
+        Edit
 
-  .ChatMain__messageForm
-    = form_with url: "#", method: :post, local: true do |f|
-      = f.text_field :content, class: 'inputForm', placeholder: 'type a message'
-      = f.label :image, class: 'inputImage' do
-        = icon('far', 'image', class: 'inputBtn')
-        = f.file_field :image, class: 'fileBtn'
-      = f.submit 'Send', class: 'submitBtn'
+  .MessageField
+    = render @messages
+    -# .ChatMain__messageList__postInfo
+    -#   .ChatMain__messageList__postInfo__userName
+    -#     Name
+    -#   .ChatMain__messageList__postInfo__date
+    -#     Date
+    -# .ChatMain__messageList__message
+     
+
+  .Footer
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
+        = f.label :image, class: 'Form__inputImage' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'Form__submit'

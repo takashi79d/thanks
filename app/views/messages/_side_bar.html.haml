@@ -1,25 +1,20 @@
 .SideBar
-  .SideBar__upper
-    .SideBar__upper__header
-      .SideBar__upper__header__list
-        %h3.SideBar__upper__header__list__userName
-          Username:
-          = current_user.username
-        %ul.SideBar__upper__header__list__icons
-          %li.SideBar__upper__header__list__icons-edit
-          = link_to new_group_path do
-            = icon('far', 'edit', class: "btn--edit")
-          %li.SideBar__upper__header__list__icons-cog
-          = link_to edit_user_path(current_user) do
-            = icon('fas', 'cog', class: "btn--cog")
-
-  .SideBar__middle
+  .LeftHeader
+    .LeftHeader__list
+      %p.LeftHeader__userName
+        = current_user.username
+      .LeftHeader__icon
+        .LeftHeader__icon-edit
+        = link_to new_group_path, class: "content__btn contents__btn--edit" do
+          = icon('far', 'edit', class: "contents__btn--icon")
+        .LeftHeader__icon-cog
+        = link_to edit_user_path(current_user), class: "content__btn contents__btn--cog" do
+          = icon('fas', 'cog', class: "contents__btn--icon")
+  .GroupList
     - current_user.groups.each do |group|
-      .SideBar__middle__container
-        = link_to '#' do
-          .SideBar__middle__container__groupName
+      .Groups
+        = link_to group_messages_path(group), class: "Group" do
+          %p.Group__name
             = group.name
-          .SideBar__middle__container__messageList
-            メッセージはまだありません
-
-  .SideBar__under
+          %p.Group__message
+            = group.show_last_message
