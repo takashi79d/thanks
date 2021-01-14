@@ -1,0 +1,77 @@
+.GroupHeader__message {
+  width: 100vw;
+  height: 20px;
+  margin: 0 auto;
+  background-color: greenyellow;
+  display: flex;
+
+    &__text {
+      margin: 0 auto;
+      padding-top: 20px;
+      color: #ffffff;
+    }
+
+}
+
+.GroupHeader {
+  background-color: greenyellow;
+  border-bottom: #eeeeee;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+
+    &__userName {
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    &__list {
+      width: 400px;
+      height: 15px;
+      color: #333333;
+      font-size: 15px;
+      font-weight: bold;
+      display: flex;
+      
+    }
+      .Group_detail {
+        width: 350px;
+        height: 12px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .GroupMessage {
+        width: 170px;
+        margin-right: 10px;
+      }
+    
+      &__icon {
+        display: flex;
+      }
+
+      .Btn-new {
+        color: #ffffff;
+        font-size: 15px;
+      }
+
+      .fa-cog:before {
+       font-size: 20px; 
+      }
+
+      .Btn-edit {
+        color: #ffffff;
+        margin-left: 5px;
+      }
+
+      .fa-edit:before {
+        font-size: 20px;
+      }
+
+
+
+}
