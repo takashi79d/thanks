@@ -1,0 +1,25 @@
+
+.GroupHeader__message
+  .GroupHeader__message__text
+    右のアイコンからグループを作成して感謝の気持ちを伝えよう！
+.GroupHeader
+  .GroupHeader__userName
+    ユーザー名：
+    = current_user.username
+  .GroupHeader__list
+    - current_user.groups.each do |group|
+      .GroupHeader__list__detail
+        = link_to group_messages_path(group), class: "Group_detail" do
+          %p.GroupName
+            = group.name
+          %p.GroupMessage
+            = group.show_last_message
+     
+  
+  .GroupHeader__icon
+    .GroupHeader__icon-edit
+    = link_to new_group_path, class: "Btn-new-path" do
+      = icon('far', 'edit', class: "Btn-new")
+    .GroupHeader__icon-cog
+    = link_to edit_user_path(current_user), class: "Btn-edit-path" do
+      = icon('fas', 'cog', class: "Btn-edit")
